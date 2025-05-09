@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Insurance {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for current year and birth year
+        System.out.print("Enter the current year: ");
+        int currentYear = scanner.nextInt();
+
+        System.out.print("Enter your birth year: ");
+        int birthYear = scanner.nextInt();
+
+        // Calculate the premium
+        int premium = calculatePremium(currentYear, birthYear);
+
+        // Display the premium amount
+        System.out.println("Your annual policy premium is: $" + premium);
+
+        scanner.close();
+    }
+
+    // Method to calculate the premium
+    public static int calculatePremium(int currentYear, int birthYear) {
+        int age = currentYear - birthYear; // Calculate the age
+        int decades = age / 10; // Get the decades of the age
+        return (decades + 15) * 20; // Calculate and return the premium
+    }
+}
